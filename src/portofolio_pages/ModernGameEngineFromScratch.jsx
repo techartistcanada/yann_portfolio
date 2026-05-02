@@ -314,6 +314,39 @@ export const ModernGameEngineFromScratch = ({ onBack }) => {
         </aside>
 
         <article className="min-w-0 max-w-4xl">
+          <div className="mb-14 overflow-hidden rounded-2xl border border-primary/20 bg-surface/35 shadow-2xl">
+            <div className="border-b border-primary/10 px-5 py-4">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-primary">Rendered Scene Preview</p>
+                  <h2 className="mt-1 text-xl font-semibold text-foreground">CTestLevel3D / New Sponza Scene</h2>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {["DX12 RHI", "Deferred PBR", "IBL", "Editor Path"].map((tag) => (
+                    <span key={tag} className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 font-mono text-xs text-primary">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="relative bg-black">
+              <video
+                className="aspect-video w-full object-contain"
+                src="/projects/yannengine/sponza_scene.mp4"
+                controls
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+            </div>
+            <p className="px-5 py-4 text-sm leading-relaxed text-muted-foreground">
+              This is the scene used by the frame walkthrough below: a DX12 editor render path with deferred PBR,
+              image-based lighting, G-buffer passes, tone mapping, and ImGui overlay support.
+            </p>
+          </div>
+
           <SectionHeading id="summary" num="0">
             The 10-Second Summary
           </SectionHeading>

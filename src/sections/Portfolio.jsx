@@ -1,100 +1,77 @@
-import { useMemo, useState } from "react";
-
-const categories = [
-  { value: "all", label: "All" },
-  { value: "tech-art-ui", label: "Tech Art UI" },
-  { value: "shader-material", label: "Shader/Material" },
-  { value: "engine-programming", label: "Engine Programming/C++" },
-  { value: "procedural-houdini", label: "Procedural/Houdini" },
-  { value: "gameplay-blueprint", label: "Gameplay/Blueprint" },
-];
-
 const portfolioItems = [
   {
-    id: "tech-art-ui-01",
-    title: "Tech Art UI",
-    description: "UI tooling and workflows for artists.",
+    id: "photoshop-umg",
+    title: "AI-Assisted UI Implementation in Unreal Engine",
+    description: "Photoshop layout, ComfyUI asset generation, and Unreal UMG implementation workflow.",
     category: "tech-art-ui",
-    href: "/portfolio/tech-art-ui",
-    image: "/portfolio/cover.jpg",
+    image: "/projects/photoshop_umg/photoshop_umg_cover.png",
   },
   {
-    id: "shader-material-01",
-    title: "Shader/Material",
-    description: "Shader graphs, materials, and rendering studies.",
-    category: "shader-material",
-    href: "/portfolio/shader-material",
-    image: "/portfolio/cover.jpg",
+    id: "unreal-pie-menu",
+    title: "Dynamic Radial Menu System",
+    description: "Unreal UMG pie menu with dynamic sector math, material feedback, and BPI communication.",
+    category: "tech-art-ui",
+    image: "/projects/pie_menu/piemenu_cover.gif",
   },
   {
-    id: "engine-programming-01",
-    title: "Engine Programming/C++",
-    description: "Engine features and performance work.",
-    category: "engine-programming",
-    href: "/portfolio/engine-programming",
-    image: "/portfolio/cover.jpg",
-  },
-  {
-    id: "procedural-houdini-01",
-    title: "Procedural/Houdini",
-    description: "Procedural tools and systems in Houdini.",
-    category: "procedural-houdini",
-    href: "/portfolio/procedural-houdini",
-    image: "/portfolio/cover.jpg",
-  },
-  {
-    id: "gameplay-blueprint-01",
-    title: "Gameplay/Blueprint",
-    description: "Gameplay scripting and prototyping.",
+    id: "puzzle-game",
+    title: "Puzzle Mini-Game With Blueprint",
+    description: "Unreal Blueprint puzzle prototype with modular board and interaction logic.",
     category: "gameplay-blueprint",
-    href: "/portfolio/gameplay-blueprint",
-    image: "/portfolio/cover.jpg",
+    image: "/portfolio/legacy/cover_minipuzzlegame.png",
+  },
+  {
+    id: "stylized-materials",
+    title: "Stylized Unreal Scene/Materials",
+    description: "Stylized materials, master material setup, and Substance Designer texture work.",
+    category: "shader-material",
+    image: "/portfolio/legacy/cover_stylizedMaterials.jpg",
+  },
+  {
+    id: "2d-game-engine",
+    title: "The Last Hospital - 2D Simulation Engine",
+    description: "Custom C++ engine with ECS, simulation systems, AI, UI, and editor tooling.",
+    category: "engine-programming",
+    image: "/portfolio/legacy/cover_2dgameengine.png",
+  },
+  {
+    id: "houdini-procedural",
+    title: "Houdini Procedural Generation In Unreal",
+    description: "Houdini Engine workflow for procedural content generation inside Unreal.",
+    category: "procedural-houdini",
+    image: "/portfolio/legacy/cover_houdiniprocedural.gif",
+  },
+  {
+    id: "unreal-chaos-destruction",
+    title: "Unreal Chaos Destruction",
+    description: "Chaos physics destruction prototype with Blueprint setup and feature test map.",
+    category: "gameplay-blueprint",
+    image: "/portfolio/legacy/cover_unrealchaos.png",
   },
 ];
 
-export const Portfolio = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const filteredItems = useMemo(() => {
-    if (activeCategory === "all") {
-      return portfolioItems;
-    }
-    return portfolioItems.filter((item) => item.category === activeCategory);
-  }, [activeCategory]);
-
+export const Portfolio = ({ onOpenProject }) => {
   return (
     <section id="portfolio" className="experience">
       <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-center mb-10">
-        <span className="text-primary glow-text">Portfolio</span>
+        <span className="text-primary glow-text">Personal Projects</span>
       </h2>
 
-      <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
-        {categories.map((category) => (
-          <button
-            key={category.value}
-            type="button"
-            className={`px-4 py-2 rounded-full text-sm transition-colors ${
-              activeCategory === category.value
-                ? "bg-primary text-background"
-                : "glass text-muted-foreground hover:text-foreground"
-            }`}
-            onClick={() => setActiveCategory(category.value)}
-          >
-            {category.label}
-          </button>
-        ))}
-      </div>
-
       <div className="experience-grid">
-        {filteredItems.map((item) => (
-          <a key={item.id} href={item.href} className="project-card">
+        {portfolioItems.map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            onClick={() => onOpenProject?.(item.id)}
+            className="project-card text-left"
+          >
             <div
               className="project-image"
               style={{ backgroundImage: `url('${item.image}')` }}
             />
             <h3>{item.title}</h3>
             <p>{item.description}</p>
-          </a>
+          </button>
         ))}
       </div>
     </section>

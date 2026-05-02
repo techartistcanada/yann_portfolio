@@ -2,10 +2,13 @@ import {motion} from 'framer-motion';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {Button} from "@/components/Button";
-import { ArrowRight, Download, Github, Linkedin } from "lucide-react";
-import { AnimatedBorderButton } from "../components/AnimatedBorederButton";
+import { ArrowRight, Github, Linkedin } from "lucide-react";
 
 export const Hero = () => {
+  const scrollToExperience = () => {
+    document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
   <section className="relative min-h-screen flex items-center overflow-hidden">
     {/* Background Elements */}
@@ -74,18 +77,17 @@ export const Hero = () => {
           {/* CTA Buttons*/}
           {/* 两个大按钮 */}
           <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-            <Button size="lg">
+            <Button size="lg" onClick={scrollToExperience}>
               View My Projects <ArrowRight className="w-5 h-5" />
             </Button>
-            <AnimatedBorderButton />
           </div>
           {/* social links */}
           {/* 社交链接 */}
           <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
             <span className="text-sm text-muted-foreground">Follow me:</span>
             {[
-              { icon: Github, href: "https://github.com", label: "GitHub" },
-              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+              { icon: Github, href: "https://github.com/techartistcanada/YannEngine", label: "GitHub" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/zhiyuan-you-91912b327?locale=en_US", label: "LinkedIn" },
             ].map((social, idx) => {
               const Icon = social.icon;
               return (

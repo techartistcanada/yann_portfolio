@@ -6,6 +6,8 @@ const navLinks = [
     { href: "#portfolio", label: "Portfolio" },
     { href: "#about", label: "About" },
 ];
+const linkedInUrl = "https://www.linkedin.com/in/zhiyuan-you-91912b327?locale=en_US";
+
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   return (
@@ -27,7 +29,9 @@ export const Navbar = () => {
         </div>
         {/* CTA call to action button */}
         <div className="hidden md:block">
-            <Button size="sm">Hire Me</Button>
+            <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
+                <Button size="sm">Hire Me</Button>
+            </a>
         </div>
 
         {/* mobile menu button */}
@@ -49,8 +53,9 @@ export const Navbar = () => {
                             {link.label}
                         </a>
                     ))}
-
-                <Button>Hire Me</Button>
+                <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
+                    <Button>Hire Me</Button>
+                </a>
                 </div>
             </div>
         )}

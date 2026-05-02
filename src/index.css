@@ -148,7 +148,7 @@
 /* Experience/Projects */
 /* ================================================== */
 .experience {
-  padding: 9.5rem 5% 6rem;
+  padding: 5.5rem 5% 5rem;
   background-color: var(--background);
   position: relative;
 }
@@ -171,16 +171,19 @@
 /* project-card                                       */
 /* ================================================== */
 .project-card {
-  background: var(--card-bg);
+  background: color-mix(in srgb, var(--color-surface) 78%, transparent);
   border-radius: 1rem;
   overflow:hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: all 0.3 ease;
-  border: 1px solid var(--card-border);
+  transition: all 0.3s ease;
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
   position: relative;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  color: inherit;
+  font: inherit;
+  padding: 0;
 }
 
 /* NOTE: ::before 是伪元素(Pseudo-element)的意思 不参加布局 只画在某个元素的前面 */
@@ -193,8 +196,8 @@
   bottom: 0;
   background: linear-gradient(
     135deg,
-    var(--gradient-start) 0%, 
-    var(--gradient-end) 100%
+    color-mix(in srgb, var(--color-primary) 85%, white) 0%,
+    color-mix(in srgb, var(--color-highlight) 80%, white) 100%
   );
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -208,7 +211,7 @@
 .project-card:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  border-color: var(--accent-color);
+  border-color: var(--color-primary);
 }
 
 .project-image {
@@ -244,18 +247,18 @@
 .project-image:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  border-color: var(--accent-color);
+  border-color: var(--color-primary);
 }
 
 .project-card h3 {
   padding: 1.5rem 1.5rem 0.5rem;
   font-size: 1.5rem;
-  color: var(--text-color);
+  color: var(--color-foreground);
 }
 
 .project-card p {
   padding: 0 1.5rem 1rem;
-  color: var(--light-text);
+  color: var(--color-muted-foreground);
   flex-grow: 1;
 }
 
@@ -317,4 +320,13 @@
 .code-display {
   width: 100%;
   height: 500px;
+}
+
+.code-display pre {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.code-display pre::-webkit-scrollbar {
+  display: none;
 }

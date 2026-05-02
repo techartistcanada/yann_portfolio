@@ -152,42 +152,29 @@ export const FeaturedProject = ({ onOpen }) => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative rounded-2xl overflow-hidden"
+          className="featured-cover-frame relative rounded-2xl overflow-hidden"
           style={{ minHeight: "460px" }}
         >
-          {/* Gradient base */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(135deg, #0d1f2d 0%, #0f2a2a 40%, #0a1a1a 100%)",
-            }}
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            src="/projects/yannengine/yannengine_cover.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
           />
 
-          {/* Grid overlay */}
-          <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage:
-                "linear-gradient(#20b2a6 1px, transparent 1px), linear-gradient(90deg, #20b2a6 1px, transparent 1px)",
-              backgroundSize: "40px 40px",
-            }}
-          />
-
-          {/* Glowing orb */}
-          <div
-            className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full blur-3xl opacity-20"
-            style={{ background: "radial-gradient(circle, #20b2a6, transparent 70%)" }}
-          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/65 via-background/10 to-transparent" />
 
           {/* Corner accent lines */}
-          <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-primary opacity-60 rounded-tl-2xl" />
-          <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-primary opacity-60 rounded-tr-2xl" />
-          <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-primary opacity-60 rounded-bl-2xl" />
-          <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-primary opacity-60 rounded-br-2xl" />
+          <div className="hidden absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-primary opacity-60 rounded-tl-2xl" />
+          <div className="hidden absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-primary opacity-60 rounded-tr-2xl" />
+          <div className="hidden absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-primary opacity-60 rounded-bl-2xl" />
+          <div className="hidden absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-primary opacity-60 rounded-br-2xl" />
 
           {/* Placeholder content */}
-          <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 py-16 text-center gap-4">
+          <div className="hidden">
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}

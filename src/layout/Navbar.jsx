@@ -3,8 +3,8 @@ import { Menu, X } from "lucide-react";
 import React from "react";
 const navLinks = [
     { href: "#experience", label: "Experience" },
-    { href: "#portfolio", label: "Portfolio" },
-    { href: "#about", label: "About" },
+    { href: "#featured-project", label: "Portfolio" },
+    { href: "#", label: "About" },
 ];
 const linkedInUrl = "https://www.linkedin.com/in/zhiyuan-you-91912b327?locale=en_US";
 

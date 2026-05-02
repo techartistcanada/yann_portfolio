@@ -322,6 +322,11 @@
   height: 500px;
 }
 
+.featured-cover-frame {
+  border: 1px solid color-mix(in srgb, var(--color-primary) 70%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
 .code-display pre {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -329,4 +334,27 @@
 
 .code-display pre::-webkit-scrollbar {
   display: none;
+}
+
+.experience-modal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-primary) 45%, #334155) #0f172a;
+}
+
+.experience-modal-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.experience-modal-scroll::-webkit-scrollbar-track {
+  background: #0f172a;
+  border-radius: 999px;
+}
+
+.experience-modal-scroll::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-primary) 45%, #334155);
+  border-radius: 999px;
+}
+
+.experience-modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--color-primary) 70%, #334155);
 }

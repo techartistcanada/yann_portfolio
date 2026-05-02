@@ -4,12 +4,13 @@ import {
   Sun,
   Edit3,
   Database,
-  GitBranch,
   Sliders,
   Zap,
   RefreshCw,
   Shield,
   Box,
+  Cpu,
+  Boxes,
   ArrowUpRight,
   BookOpen,
 } from "lucide-react";
@@ -17,52 +18,62 @@ import {
 const features = [
   {
     icon: Layers,
-    title: "Cross-API Rendering Abstraction",
+    title: "Custom RHI Abstraction",
+    summary: "Thin IRHI layer with DX12 as the primary backend and a DX11 path kept alive to validate the abstraction.",
     description: "Unified backend over Vulkan & Direct3D 12 — swap APIs without touching engine code.",
   },
   {
-    icon: Sun,
-    title: "Full Physically Based Rendering",
+    icon: Cpu,
+    title: "Hand-Built DX12 Backend",
+    summary: "Triple buffering, fences, command queues, descriptor allocators, root signatures, PSO cache, and resource state tracking.",
     description: "GGX BRDF, image-based lighting, area lights, and real-time IBL capture.",
   },
   {
-    icon: GitBranch,
-    title: "Frame Graph Architecture",
+    icon: Sun,
+    title: "Deferred PBR Renderer",
+    summary: "Five-target G-buffer, light-volume deferred lighting, HDR scene target, forward transparency path, and tone mapping.",
     description: "Automatic pass scheduling, resource aliasing, and GPU barrier inference.",
   },
   {
-    icon: Database,
-    title: "Data-Oriented Entity System",
+    icon: Zap,
+    title: "GPU Compute IBL Pipeline",
+    summary: "Equirect-to-cubemap, mip generation, irradiance, specular prefilter, and BRDF LUT baked on the GPU at load time.",
     description: "Cache-friendly ECS with archetypal storage and parallel query execution.",
   },
   {
-    icon: Edit3,
-    title: "Integrated Scene Editor",
+    icon: Shield,
+    title: "Real DX12 Hazard Handling",
+    summary: "RT/SRV slot clearing, pending barrier resolution, scratch cubemap mip generation, and safe command-list ownership on resize.",
     description: "ImGui-driven editor with transform gizmos, live property panel, and viewport.",
   },
   {
     icon: Sliders,
-    title: "Full Post-Processing Stack",
+    title: "Production-Style Materials",
+    summary: "Parent material plus instance overrides, hot reload support, and one PBR shader handling both Unreal ORM and glTF MR packing.",
     description: "TAA, bloom, depth-of-field, tone mapping, and artist-driven color grading.",
   },
   {
-    icon: Zap,
-    title: "Fiber-Based Job System",
+    icon: Edit3,
+    title: "ImGui Editor Tooling",
+    summary: "Editor camera, G-buffer debug views, FPS/draw-call HUD, bounding-box visualization, and live resize rebuild path.",
     description: "Work-stealing scheduler with lock-free queues for true multi-core parallelism.",
   },
   {
-    icon: RefreshCw,
-    title: "Hot-Reload Asset Pipeline",
+    icon: Database,
+    title: "Asset Import Pipeline",
+    summary: "Assimp FBX/glTF import, DirectXTex texture loading, HDR environment ingestion, and multi-material submesh support.",
     description: "Live shader and texture reloading mid-session, no restart required.",
   },
   {
-    icon: Shield,
-    title: "Multi-Cascade Shadow Mapping",
+    icon: Boxes,
+    title: "Scene Component Framework",
+    summary: "Levels, layers, game objects, components, scripts, prefabs, serialization, collision, timing, input, and deferred tasks.",
     description: "PCF / PCSS soft shadows with automatic cascade splits and bias stabilization.",
   },
   {
-    icon: Box,
-    title: "Scene Serialization & Prefabs",
+    icon: RefreshCw,
+    title: "Renderer Debug Paths",
+    summary: "G-buffer channel inspection, deferred merge debug mode, frustum culling data, and per-submesh domain sorting.",
     description: "JSON-driven scene graph with prefab instancing and incremental asset loading.",
   },
 ];
@@ -238,7 +249,7 @@ export const FeaturedProject = ({ onOpen }) => {
                       {feature.title}
                     </h4>
                     <p className="text-xs text-muted-foreground leading-relaxed">
-                      {feature.description}
+                      {feature.summary ?? feature.description}
                     </p>
                   </div>
                 </div>

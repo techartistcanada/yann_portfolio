@@ -6,7 +6,6 @@ import { Portfolio } from "@/sections/Portfolio";
 import { About } from "@/sections/About";
 import { Navbar } from "@/layout/Navbar";
 import { ModernGameEngineFromScratch } from "@/portofolio_pages/ModernGameEngineFromScratch";
-import { PBRIBLPipeline } from "@/portofolio_pages/PBRIBLPipeline";
 import { TwoDGameEngine } from "@/portofolio_pages/TwoDGameEngine";
 import { HoudiniProcedural } from "@/portofolio_pages/HoudiniProcedural";
 import { PuzzleGame } from "@/portofolio_pages/PuzzleGame";
@@ -23,21 +22,10 @@ function App() {
     window.scrollTo(0, 0);
   }, [route]);
 
-  if (route === "yannengine-pbr") {
-    return (
-      <div className="min-h-screen overflow-x-hidden">
-        <PBRIBLPipeline onBack={() => setRoute("yannengine")} />
-      </div>
-    );
-  }
-
   if (route === "yannengine") {
     return (
       <div className="min-h-screen overflow-x-hidden">
-        <ModernGameEngineFromScratch
-          onBack={() => setRoute("home")}
-          onNavigatePBR={() => setRoute("yannengine-pbr")}
-        />
+        <ModernGameEngineFromScratch onBack={() => setRoute("home")} />
       </div>
     );
   }

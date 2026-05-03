@@ -6,8 +6,8 @@ const project = {
   title: "Unreal Chaos Destruction",
   titleAccent: "Unreal Chaos",
   titleRest: "Destruction",
-  kicker: "Gameplay / Blueprint",
-  category: "Gameplay / Blueprint",
+  kicker: "Chaos / Destruction",
+  category: "Chaos / Destruction",
   cover: "/portfolio/legacy/cover_unrealchaos.png",
   summary:
     "A Chaos destruction prototype for the indie game The Weight, focused on Blueprint-driven destruction behavior, physics setup, and VFX support.",

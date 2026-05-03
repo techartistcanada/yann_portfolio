@@ -270,15 +270,19 @@
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .project-tech span {
-  padding: 0.3rem 0.8rem;
-  background: rgba(255, 255, 255, 0.1);
+  max-width: 100%;
+  padding: 0.3rem 0.7rem;
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
   border-radius: 50px;
-  font-size: 0.8rem;
+  font-size: 0.76rem;
+  line-height: 1.25;
   color: var(--color-primary);
-  border: 1px solid rgba(5, 240, 252, 0.2);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+  overflow-wrap: anywhere;
 }
 .floating-card {
   position: absolute;

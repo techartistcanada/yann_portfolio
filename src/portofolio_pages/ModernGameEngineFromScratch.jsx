@@ -207,6 +207,12 @@ const PassCard = ({ number, title, children }) => (
 export const ModernGameEngineFromScratch = ({ onBack }) => {
   const [activeId, setActiveId] = useState(sections[0].id);
 
+  const scrollToSection = (event, sectionId) => {
+    event.preventDefault();
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setActiveId(sectionId);
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const observer = new IntersectionObserver(
@@ -227,8 +233,8 @@ export const ModernGameEngineFromScratch = ({ onBack }) => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="sticky top-0 z-40 border-b border-border/40 bg-background/75 backdrop-blur-md">
+    <div className="min-h-screen bg-background pt-[73px] text-foreground">
+      <div className="fixed inset-x-0 top-0 z-50 border-b border-border/40 bg-background/85 shadow-lg shadow-black/20 backdrop-blur-md">
         <div className="container mx-auto flex items-center justify-between px-6 py-4">
           <button
             onClick={onBack}
@@ -300,6 +306,7 @@ export const ModernGameEngineFromScratch = ({ onBack }) => {
                 <a
                   key={section.id}
                   href={`#${section.id}`}
+                  onClick={(event) => scrollToSection(event, section.id)}
                   className={`relative block px-4 py-2 text-sm transition-colors ${
                     activeId === section.id ? "text-primary" : "text-muted-foreground hover:text-foreground"
                   }`}

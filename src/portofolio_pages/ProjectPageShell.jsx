@@ -7,7 +7,6 @@ import {
   X,
   ZoomIn,
   ZoomOut,
-  Maximize2,
 } from "lucide-react";
 
 const Tag = ({ children }) => (
@@ -150,14 +149,6 @@ const ImageModal = ({ image, onClose }) => {
           </button>
           <button
             type="button"
-            onClick={() => setZoom(1)}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80"
-            aria-label="Reset zoom"
-          >
-            <Maximize2 className="h-5 w-5" />
-          </button>
-          <button
-            type="button"
             onClick={() => setZoom((value) => Math.min(3, value + 0.25))}
             className="flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80"
             aria-label="Zoom in"
@@ -181,8 +172,8 @@ export const ProjectPageShell = ({ project, onBack }) => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="sticky top-0 z-40 border-b border-border/40 bg-background/75 backdrop-blur-md">
+    <div className="min-h-screen bg-background pt-[73px] text-foreground">
+      <div className="fixed inset-x-0 top-0 z-50 border-b border-border/40 bg-background/85 shadow-lg shadow-black/20 backdrop-blur-md">
         <div className="container mx-auto flex items-center justify-between px-6 py-4">
           <button
             onClick={onBack}

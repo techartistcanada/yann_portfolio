@@ -63,8 +63,8 @@ const WorkflowStep = ({ number, title, children }) => (
 
 export const PhotoshopUMG = ({ onBack }) => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="sticky top-0 z-40 border-b border-border/40 bg-background/75 backdrop-blur-md">
+    <div className="min-h-screen bg-background pt-[73px] text-foreground">
+      <div className="fixed inset-x-0 top-0 z-50 border-b border-border/40 bg-background/85 shadow-lg shadow-black/20 backdrop-blur-md">
         <div className="container mx-auto flex items-center justify-between px-6 py-4">
           <button
             onClick={onBack}

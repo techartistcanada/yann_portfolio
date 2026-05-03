@@ -48,7 +48,7 @@ export const Hero = () => {
           <div className="animate-fade-in">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                Technial Artist/Engine Programmer
+                Senior Technical Artist — Rendering & UI Systems
             </span>
           </div>
           <div className="space-y-4">
@@ -68,10 +68,10 @@ export const Hero = () => {
             <p
               className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200"
             >
-              Hi, I'm Zhiyuan - a Technical Artist and Engine Programmer specializing
-              in real-time graphics and interactive systems. I create tools and
-              workflows that empower artists and developers to bring immersive
-              experiences to life.
+              I'm Zhiyuan — a Senior Technical Artist with AAA experience across
+              Unreal, Snowdrop, and custom engines. I specialize in real-time
+              rendering, UI systems, profiling, and the tooling that keeps large
+              art teams moving fast. I've shipped across PC, console, and Switch.
             </p>
           </div>
           {/* CTA Buttons*/}

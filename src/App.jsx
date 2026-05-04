@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { Hero } from "@/sections/Hero";
 import { Experience } from "@/sections/Experience";
 import { FeaturedProject } from "@/sections/FeaturedProject";
@@ -94,6 +95,7 @@ function App() {
     return (
       <div className="min-h-screen overflow-x-hidden">
         <ModernGameEngineFromScratch onBack={backToPortfolio} />
+        <Analytics />
       </div>
     );
   }
@@ -103,6 +105,7 @@ function App() {
     return (
       <div className="min-h-screen overflow-x-hidden">
         <ProjectPage onBack={backToPortfolio} />
+        <Analytics />
       </div>
     );
   }
@@ -116,6 +119,7 @@ function App() {
         <FeaturedProject onOpen={() => openRoute("yannengine")} />
         <Portfolio onOpenProject={openRoute} />
       </main>
+      <Analytics />
     </div>
   );
 }
